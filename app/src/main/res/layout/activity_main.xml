@@ -5,6 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:background="#060"
+
     tools:context=".MainActivity">
 
 <!--    여러 작업할 때 태그가 겹칠 수 있음    -->
@@ -18,9 +21,16 @@
 
         android:src="@drawable/c_red_joker"
 
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_deal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_deal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="카드 분배"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,6 +18,10 @@ class MainActivity : AppCompatActivity() {
         main= ActivityMainBinding.inflate(layoutInflater)
         setContentView(main.root)
 
+        main.btnDeal.setOnClickListener {
+            main.imgCard1.setImageResource((R.drawable.c_2_of_hearts))
+        }
+
         main.imgCard1.setImageResource(R.drawable.c_2_of_clubs)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
