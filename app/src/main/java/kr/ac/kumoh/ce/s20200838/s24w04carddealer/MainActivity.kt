@@ -18,6 +18,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        Log.i("Lifecycle!!!!!!!!!!!", "onCreate")
         enableEdgeToEdge()
 //        setContentView(R.layout.activity_main)
 
@@ -67,5 +69,25 @@ class MainActivity : AppCompatActivity() {
         }
 
         return "c_${number}_of_${shape}"
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i("Lifecycle!!!!!!!!!!!", "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i("Lifecycle!!!!!!!!!!!", "onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i("Lifecycle!!!!!!!!!!!", "onPause")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i("Lifecycle!!!!!!!!!!!", "onDestroy")
     }
 }
