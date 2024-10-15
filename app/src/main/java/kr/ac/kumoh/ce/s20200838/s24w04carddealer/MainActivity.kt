@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
 import kr.ac.kumoh.ce.s20200838.s24w04carddealer.databinding.ActivityMainBinding
 import kotlin.random.Random
 
@@ -26,6 +27,27 @@ class MainActivity : AppCompatActivity() {
         main= ActivityMainBinding.inflate(layoutInflater)
         setContentView(main.root)
 
+//    회전했을 때 데이터 보존을 위해
+        val model = ViewModelProvider(this)[CardViewModel::class.java]
+
+        val res = IntArray(5)
+
+        for(i in model.cards.indices) {
+//            model.cards[i] = Random.nextInt(52)
+
+            res[i] = resources.getIdentifier(
+                getCardName(model.cards[i]),
+                "drawable",
+                packageName
+            )
+        }
+
+        main.imgCard1.setImageResource(res[0])
+        main.imgCard2.setImageResource(res[1])
+        main.imgCard3.setImageResource(res[2])
+        main.imgCard4.setImageResource(res[3])
+        main.imgCard5.setImageResource(res[4])
+
         main.btnDeal.setOnClickListener {
 //            Log.i("Card!!!!!!", getCardName((32)))
 //            Log.i("Card~~~~~~", R.drawable.c_10_of_clubs.toString())
@@ -37,20 +59,30 @@ class MainActivity : AppCompatActivity() {
 //                packageName
 //            )
 
-            val c = IntArray(5)
+//            val c = IntArray(5)
+
+            model.shuffle()
 
             val res = IntArray(5)
 
-//            for (i in 0 until c.size)
-            for(i in c.indices) {
-                c[i] = Random.nextInt(52)
+            //            for (i in 0 until c.size)
+            for(i in model.cards.indices) {
+//                model.cards[i] = Random.nextInt(52)
 
                 res[i] = resources.getIdentifier(
-                    getCardName(c[i]),
+                    getCardName(model.cards[i]),
                     "drawable",
                     packageName
                 )
             }
+//            위 반복문이랑 동일
+//            model.cards.forEachIndexed { index, num ->
+//                res[index] = resources.getIdentifier(
+//                    getCardName(num),
+//                    "drawable",
+//                    packageName
+//                )
+//            }
 
             main.imgCard1.setImageResource(res[0])
             main.imgCard2.setImageResource(res[1])
@@ -59,7 +91,7 @@ class MainActivity : AppCompatActivity() {
             main.imgCard5.setImageResource(res[4])
         }
 
-        main.imgCard1.setImageResource(R.drawable.c_2_of_clubs)
+//        main.imgCard1.setImageResource(R.drawable.c_2_of_clubs)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -90,23 +122,23 @@ class MainActivity : AppCompatActivity() {
         return "c_${number}_of_${shape}"
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.i("Lifecycle!!!!!!!!!!!", "onStart")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.i("Lifecycle!!!!!!!!!!!", "onResume")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.i("Lifecycle!!!!!!!!!!!", "onPause")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.i("Lifecycle!!!!!!!!!!!", "onDestroy")
-    }
+//    override fun onStart() {
+//        super.onStart()
+//        Log.i("Lifecycle!!!!!!!!!!!", "onStart")
+//    }
+//
+//    override fun onResume() {
+//        super.onResume()
+//        Log.i("Lifecycle!!!!!!!!!!!", "onResume")
+//    }
+//
+//    override fun onPause() {
+//        super.onPause()
+//        Log.i("Lifecycle!!!!!!!!!!!", "onPause")
+//    }
+//
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        Log.i("Lifecycle!!!!!!!!!!!", "onDestroy")
+//    }
 }
