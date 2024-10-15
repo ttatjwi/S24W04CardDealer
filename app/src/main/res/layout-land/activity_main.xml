@@ -13,18 +13,77 @@
 <!--    여러 작업할 때 태그가 겹칠 수 있음    -->
 <!--    그래서 android:id라고 여기서만 쓰는 id의 태그라고 알려주는 것    -->
 <!--    "@+id/img_card1"는 snail 케이스    -->
+<!--    start는 왼쪽     -->
     <ImageView
         android:id="@+id/img_card1"
 
         android:layout_width="0dp"
         android:layout_height="0dp"
 
+        android:layout_margin="10dp"
+
         android:src="@drawable/c_red_joker"
 
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/btn_deal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/img_card2" />
+    <ImageView
+        android:id="@+id/img_card2"
+
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_margin="10dp"
+
+        android:src="@drawable/c_red_joker"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_deal"
+        app:layout_constraintLeft_toRightOf="@id/img_card1"
+        app:layout_constraintRight_toLeftOf="@id/img_card3" />
+    <ImageView
+        android:id="@+id/img_card3"
+
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_margin="10dp"
+
+        android:src="@drawable/c_red_joker"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_deal"
+        app:layout_constraintLeft_toRightOf="@id/img_card2"
+        app:layout_constraintRight_toLeftOf="@id/img_card4" />
+    <ImageView
+        android:id="@+id/img_card4"
+
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_margin="10dp"
+
+        android:src="@drawable/c_red_joker"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_deal"
+        app:layout_constraintLeft_toRightOf="@id/img_card3"
+        app:layout_constraintRight_toLeftOf="@id/img_card5" />
+    <ImageView
+        android:id="@+id/img_card5"
+
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_margin="10dp"
+
+        android:src="@drawable/c_red_joker"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_deal"
+        app:layout_constraintLeft_toRightOf="@id/img_card4"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/btn_deal"

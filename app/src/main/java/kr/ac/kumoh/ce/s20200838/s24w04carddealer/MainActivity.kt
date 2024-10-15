@@ -30,14 +30,33 @@ class MainActivity : AppCompatActivity() {
 //            Log.i("Card!!!!!!", getCardName((32)))
 //            Log.i("Card~~~~~~", R.drawable.c_10_of_clubs.toString())
 
-            val c = Random.nextInt(52)
+//            val c = Random.nextInt(52)
+//            val res = resources.getIdentifier(
+//                getCardName(c),
+//                "drawable",
+//                packageName
+//            )
 
-            val res = resources.getIdentifier(
-                getCardName(c),
-                "drawable",
-                packageName
-            )
-            main.imgCard1.setImageResource(res)
+            val c = IntArray(5)
+
+            val res = IntArray(5)
+
+//            for (i in 0 until c.size)
+            for(i in c.indices) {
+                c[i] = Random.nextInt(52)
+
+                res[i] = resources.getIdentifier(
+                    getCardName(c[i]),
+                    "drawable",
+                    packageName
+                )
+            }
+
+            main.imgCard1.setImageResource(res[0])
+            main.imgCard2.setImageResource(res[1])
+            main.imgCard3.setImageResource(res[2])
+            main.imgCard4.setImageResource(res[3])
+            main.imgCard5.setImageResource(res[4])
         }
 
         main.imgCard1.setImageResource(R.drawable.c_2_of_clubs)
